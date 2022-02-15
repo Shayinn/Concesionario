@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' href='../css3.css'>
+    <title>Crear cuenta de usuario</title>
+
+    <script>
+        function validacion_creacion_usu(){
+            // Nombre
+            if(document.form_crear_usu.nombree_usu.value.length==0){
+                alert('El campo nombre esta sin caracteres')
+                return false
+            }
+
+            //Apellidos
+            if(document.form_crear_usu.apellidoss_usu.value.length==0){
+                alert('El campo apellidos esta sin caracteres')
+                return false
+            }
+
+            //Contraseña
+            if(document.form_crear_usu.passs_usu.value.length==0){
+                alert('El campo contraseña esta sin caracteres')
+                return false
+            }
+            if (document.form_crear_usu.passs_usu.value.length<8) {
+                alert('El campo de contraseña necesita 8 caracteres como minimo')
+                return false
+            }
+
+            //Correo
+            if(document.form_crear_usu.emaill_usu.value.length==0){
+                alert('El campo Correo Electronico esta sin ningun caracter')
+                return false
+            }
+            if(document.form_crear_usu.emaill_usu.value.indexOf('@')==-1){
+                alert('Te falta un @ por lo menos en el correo')
+                return false
+            }
+            if(document.form_crear_usu.emaill_usu.value.indexOf('.')==-1){
+                alert('Te falta un . por lo menos en el correo')
+                return false
+            }
+
+            //Saldo 
+            if(document.form_crear_usu.saldoo_usu.value.length==0){
+                alert('El campo Saldo esta sin ningun caracter')
+                return false
+            }
+            
+            //DNI
+            if(document.form_crear_usu.dnii_usu.value.length==0){
+                alert('El campo DNI esta sin ningun caracter')
+                return false
+            }
+            if(document.form_crear_usu.dnii_usu.value.length<9){
+                alert('El campo DNI es invalido. Tiene pocos caracteres')
+                return false
+            }
+            if(document.form_crear_usu.dnii_usu.value.length>9){
+                alert('El campo DNI es invalido. Tiene demasiados caracteres')
+                return false
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <center>
+        <form name='form_crear_usu' action='./crear_user.php' method="post" >
+            <h1>Crear cuenta de usuario</h1>
+            Nombre<br>
+            <input type="text" name='nombre_usu' id='nombree_usu'><br><br>
+
+            Apellidos <br>
+            <input type="text" name='apellidos_usu' id='apellidoss_usu'><br><br>
+            
+            Contraseña <br>
+            <input type="password" name='pass_usu' id='passs_usu'><br><br>
+
+            Correo electrónico<br>
+            <input type="email" name='email_usu' id='emaill_usu'><br><br>
+
+            Saldo <br>
+            <input type="number" name='saldo_usu' id='saldoo_usu'><br><br>
+
+            DNI <br>
+            <input type="text" name='dni_usu' id='dnii_usu'><br><br>
+
+            Tipo de cuenta:
+            <select name='tipo_usu' id='tipo_usu'>
+                <option value="0"> Comprador </option>
+                <option value="1"> Vendedor </option>
+            </select><br><br>
+            <input type="submit" name='boton' id='boton' value='Crear cuenta' onclick="return validacion_creacion_usu()">
+        </form>
+    </center>
+    
+</body>
+</html>

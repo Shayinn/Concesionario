@@ -1,0 +1,3 @@
+admin: admin - rootroot
+comprador: compra - compras
+vendedor: ventas - ventas
